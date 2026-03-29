@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select RESERVATION_ID
+from AMUSEMENTPARK.RAW.RAW_HOTEL_CHECKIN
+where RESERVATION_ID is null
+
+

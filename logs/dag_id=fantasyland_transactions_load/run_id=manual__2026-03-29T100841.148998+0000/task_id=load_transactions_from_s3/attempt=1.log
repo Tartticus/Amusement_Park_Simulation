@@ -1,0 +1,41 @@
+[2026-03-29T10:08:41.738+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-29T10:08:41.759+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fantasyland_transactions_load.load_transactions_from_s3 manual__2026-03-29T10:08:41.148998+00:00 [queued]>
+[2026-03-29T10:08:41.764+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fantasyland_transactions_load.load_transactions_from_s3 manual__2026-03-29T10:08:41.148998+00:00 [queued]>
+[2026-03-29T10:08:41.764+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-03-29T10:08:41.777+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): load_transactions_from_s3> on 2026-03-29 10:08:41.148998+00:00
+[2026-03-29T10:08:41.783+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'fantasyland_transactions_load', 'load_transactions_from_s3', 'manual__2026-03-29T10:08:41.148998+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/transactions_load.py', '--cfg-path', '/tmp/tmpnd9v6lpw']
+[2026-03-29T10:08:41.785+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=403) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-29T10:08:41.785+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask load_transactions_from_s3
+[2026-03-29T10:08:41.785+0000] {standard_task_runner.py:63} INFO - Started process 405 to run task
+[2026-03-29T10:08:41.836+0000] {task_command.py:426} INFO - Running <TaskInstance: fantasyland_transactions_load.load_transactions_from_s3 manual__2026-03-29T10:08:41.148998+00:00 [running]> on host 5bf8a2b404e1
+[2026-03-29T10:08:41.875+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/utils/context.py:212 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2026-03-29T10:08:41.899+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='fantasyland-data' AIRFLOW_CTX_DAG_ID='fantasyland_transactions_load' AIRFLOW_CTX_TASK_ID='load_transactions_from_s3' AIRFLOW_CTX_EXECUTION_DATE='2026-03-29T10:08:41.148998+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-29T10:08:41.148998+00:00'
+[2026-03-29T10:08:41.900+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-29T10:08:41.909+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-29T10:08:41.910+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/project/python_etl/s3_bucket_copy.py transactions 2026-03-29 10']
+[2026-03-29T10:08:41.916+0000] {subprocess.py:86} INFO - Output:
+[2026-03-29T10:08:41.963+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-03-29T10:08:41.964+0000] {subprocess.py:93} INFO -   File "/opt/***/project/python_etl/s3_bucket_copy.py", line 6, in <module>
+[2026-03-29T10:08:41.965+0000] {subprocess.py:93} INFO -     from snowflake_connection import conn, cur
+[2026-03-29T10:08:41.965+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'snowflake_connection'
+[2026-03-29T10:08:41.967+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-03-29T10:08:41.968+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-29T10:08:41.975+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-03-29T10:08:41.978+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=fantasyland_transactions_load, task_id=load_transactions_from_s3, run_id=manual__2026-03-29T10:08:41.148998+00:00, execution_date=20260329T100841, start_date=20260329T100841, end_date=20260329T100841
+[2026-03-29T10:08:41.987+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 4 for task load_transactions_from_s3 (Bash command failed. The command returned a non-zero exit code 1.; 405)
+[2026-03-29T10:08:41.999+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-03-29T10:08:42.009+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-29T10:08:42.012+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

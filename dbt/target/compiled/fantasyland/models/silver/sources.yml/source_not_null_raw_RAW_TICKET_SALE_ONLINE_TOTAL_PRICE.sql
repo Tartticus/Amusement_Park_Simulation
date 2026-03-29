@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select TOTAL_PRICE
+from AMUSEMENTPARK.RAW.RAW_TICKET_SALE_ONLINE
+where TOTAL_PRICE is null
+
+

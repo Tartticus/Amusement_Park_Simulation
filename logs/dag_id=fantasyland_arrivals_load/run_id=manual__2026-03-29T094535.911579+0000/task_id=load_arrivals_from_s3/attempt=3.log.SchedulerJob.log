@@ -1,0 +1,1 @@
+[2026-03-29T09:48:03.251+0000] {task_context_logger.py:104} ERROR - Executor reports task instance <TaskInstance: fantasyland_arrivals_load.load_arrivals_from_s3 manual__2026-03-29T09:45:35.911579+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

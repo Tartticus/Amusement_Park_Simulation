@@ -1,0 +1,135 @@
+[2026-03-29T11:19:11.426+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-29T11:19:11.442+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fantasyland_dbt_silver.dbt_test_silver manual__2026-03-29T11:19:02.189271+00:00 [queued]>
+[2026-03-29T11:19:11.445+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fantasyland_dbt_silver.dbt_test_silver manual__2026-03-29T11:19:02.189271+00:00 [queued]>
+[2026-03-29T11:19:11.446+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-03-29T11:19:11.453+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_test_silver> on 2026-03-29 11:19:02.189271+00:00
+[2026-03-29T11:19:11.458+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1347) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-29T11:19:11.457+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'fantasyland_dbt_silver', 'dbt_test_silver', 'manual__2026-03-29T11:19:02.189271+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/dbt_silver.py', '--cfg-path', '/tmp/tmpiinx3y1j']
+[2026-03-29T11:19:11.459+0000] {standard_task_runner.py:63} INFO - Started process 1348 to run task
+[2026-03-29T11:19:11.459+0000] {standard_task_runner.py:91} INFO - Job 36: Subtask dbt_test_silver
+[2026-03-29T11:19:11.494+0000] {task_command.py:426} INFO - Running <TaskInstance: fantasyland_dbt_silver.dbt_test_silver manual__2026-03-29T11:19:02.189271+00:00 [running]> on host 22272d6c51c8
+[2026-03-29T11:19:11.545+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='fantasyland-data' AIRFLOW_CTX_DAG_ID='fantasyland_dbt_silver' AIRFLOW_CTX_TASK_ID='dbt_test_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-03-29T11:19:02.189271+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-29T11:19:02.189271+00:00'
+[2026-03-29T11:19:11.546+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-29T11:19:11.553+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-29T11:19:11.554+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/project/dbt && dbt test --select silver.*']
+[2026-03-29T11:19:11.559+0000] {subprocess.py:86} INFO - Output:
+[2026-03-29T11:19:12.707+0000] {subprocess.py:93} INFO - [0m11:19:12  Running with dbt=1.7.19
+[2026-03-29T11:19:13.134+0000] {subprocess.py:93} INFO - [0m11:19:13  Registered adapter: snowflake=1.7.4
+[2026-03-29T11:19:13.307+0000] {subprocess.py:93} INFO - [0m11:19:13  Found 11 models, 70 tests, 7 sources, 0 exposures, 0 metrics, 432 macros, 0 groups, 0 semantic models
+[2026-03-29T11:19:13.310+0000] {subprocess.py:93} INFO - [0m11:19:13
+[2026-03-29T11:19:14.013+0000] {subprocess.py:93} INFO - [0m11:19:14  Concurrency: 4 threads (target='dev')
+[2026-03-29T11:19:14.013+0000] {subprocess.py:93} INFO - [0m11:19:14
+[2026-03-29T11:19:14.021+0000] {subprocess.py:93} INFO - [0m11:19:14  1 of 51 START test accepted_values_stg_park_entry_park__mythic_kingdom__fantasy_world__wonder_cove  [RUN]
+[2026-03-29T11:19:14.022+0000] {subprocess.py:93} INFO - [0m11:19:14  2 of 51 START test accepted_values_stg_park_entry_ticket_type__day_pass__annual_pass__vip_pass__family_bundle  [RUN]
+[2026-03-29T11:19:14.022+0000] {subprocess.py:93} INFO - [0m11:19:14  3 of 51 START test accepted_values_stg_queue_entry_wait_category__short__medium__long  [RUN]
+[2026-03-29T11:19:14.023+0000] {subprocess.py:93} INFO - [0m11:19:14  4 of 51 START test accepted_values_stg_ticket_sales_channel__online__gate ...... [RUN]
+[2026-03-29T11:19:14.754+0000] {subprocess.py:93} INFO - [0m11:19:14  2 of 51 PASS accepted_values_stg_park_entry_ticket_type__day_pass__annual_pass__vip_pass__family_bundle  [[32mPASS[0m in 0.73s]
+[2026-03-29T11:19:14.756+0000] {subprocess.py:93} INFO - [0m11:19:14  5 of 51 START test not_null_stg_food_sales_item_name ........................... [RUN]
+[2026-03-29T11:19:14.822+0000] {subprocess.py:93} INFO - [0m11:19:14  3 of 51 PASS accepted_values_stg_queue_entry_wait_category__short__medium__long  [[32mPASS[0m in 0.80s]
+[2026-03-29T11:19:14.825+0000] {subprocess.py:93} INFO - [0m11:19:14  6 of 51 START test not_null_stg_food_sales_line_item_id ........................ [RUN]
+[2026-03-29T11:19:14.959+0000] {subprocess.py:93} INFO - [0m11:19:14  4 of 51 PASS accepted_values_stg_ticket_sales_channel__online__gate ............ [[32mPASS[0m in 0.93s]
+[2026-03-29T11:19:14.961+0000] {subprocess.py:93} INFO - [0m11:19:14  7 of 51 START test not_null_stg_food_sales_quantity ............................ [RUN]
+[2026-03-29T11:19:15.153+0000] {subprocess.py:93} INFO - [0m11:19:15  1 of 51 PASS accepted_values_stg_park_entry_park__mythic_kingdom__fantasy_world__wonder_cove  [[32mPASS[0m in 1.13s]
+[2026-03-29T11:19:15.156+0000] {subprocess.py:93} INFO - [0m11:19:15  8 of 51 START test not_null_stg_gift_store_sales_item_name ..................... [RUN]
+[2026-03-29T11:19:15.437+0000] {subprocess.py:93} INFO - [0m11:19:15  5 of 51 PASS not_null_stg_food_sales_item_name ................................. [[32mPASS[0m in 0.68s]
+[2026-03-29T11:19:15.440+0000] {subprocess.py:93} INFO - [0m11:19:15  9 of 51 START test not_null_stg_gift_store_sales_line_item_id .................. [RUN]
+[2026-03-29T11:19:15.680+0000] {subprocess.py:93} INFO - [0m11:19:15  7 of 51 PASS not_null_stg_food_sales_quantity .................................. [[32mPASS[0m in 0.72s]
+[2026-03-29T11:19:15.683+0000] {subprocess.py:93} INFO - [0m11:19:15  10 of 51 START test not_null_stg_gift_store_sales_quantity ..................... [RUN]
+[2026-03-29T11:19:15.735+0000] {subprocess.py:93} INFO - [0m11:19:15  6 of 51 PASS not_null_stg_food_sales_line_item_id .............................. [[32mPASS[0m in 0.91s]
+[2026-03-29T11:19:15.738+0000] {subprocess.py:93} INFO - [0m11:19:15  11 of 51 START test not_null_stg_hotel_checkin_event_id ........................ [RUN]
+[2026-03-29T11:19:15.786+0000] {subprocess.py:93} INFO - [0m11:19:15  8 of 51 PASS not_null_stg_gift_store_sales_item_name ........................... [[32mPASS[0m in 0.63s]
+[2026-03-29T11:19:15.788+0000] {subprocess.py:93} INFO - [0m11:19:15  12 of 51 START test not_null_stg_hotel_checkin_party_size ...................... [RUN]
+[2026-03-29T11:19:16.105+0000] {subprocess.py:93} INFO - [0m11:19:16  9 of 51 PASS not_null_stg_gift_store_sales_line_item_id ........................ [[32mPASS[0m in 0.66s]
+[2026-03-29T11:19:16.107+0000] {subprocess.py:93} INFO - [0m11:19:16  13 of 51 START test not_null_stg_hotel_checkin_reservation_id .................. [RUN]
+[2026-03-29T11:19:16.332+0000] {subprocess.py:93} INFO - [0m11:19:16  10 of 51 PASS not_null_stg_gift_store_sales_quantity ........................... [[32mPASS[0m in 0.65s]
+[2026-03-29T11:19:16.334+0000] {subprocess.py:93} INFO - [0m11:19:16  14 of 51 START test not_null_stg_park_entry_event_id ........................... [RUN]
+[2026-03-29T11:19:16.376+0000] {subprocess.py:93} INFO - [0m11:19:16  11 of 51 PASS not_null_stg_hotel_checkin_event_id .............................. [[32mPASS[0m in 0.64s]
+[2026-03-29T11:19:16.378+0000] {subprocess.py:93} INFO - [0m11:19:16  15 of 51 START test not_null_stg_park_entry_guest_id ........................... [RUN]
+[2026-03-29T11:19:16.401+0000] {subprocess.py:93} INFO - [0m11:19:16  12 of 51 PASS not_null_stg_hotel_checkin_party_size ............................ [[32mPASS[0m in 0.61s]
+[2026-03-29T11:19:16.403+0000] {subprocess.py:93} INFO - [0m11:19:16  16 of 51 START test not_null_stg_park_entry_park ............................... [RUN]
+[2026-03-29T11:19:16.738+0000] {subprocess.py:93} INFO - [0m11:19:16  13 of 51 PASS not_null_stg_hotel_checkin_reservation_id ........................ [[32mPASS[0m in 0.63s]
+[2026-03-29T11:19:16.740+0000] {subprocess.py:93} INFO - [0m11:19:16  17 of 51 START test not_null_stg_queue_entry_event_id .......................... [RUN]
+[2026-03-29T11:19:17.118+0000] {subprocess.py:93} INFO - [0m11:19:17  16 of 51 PASS not_null_stg_park_entry_park ..................................... [[32mPASS[0m in 0.71s]
+[2026-03-29T11:19:17.121+0000] {subprocess.py:93} INFO - [0m11:19:17  18 of 51 START test not_null_stg_queue_entry_guest_id .......................... [RUN]
+[2026-03-29T11:19:17.304+0000] {subprocess.py:93} INFO - [0m11:19:17  15 of 51 PASS not_null_stg_park_entry_guest_id ................................. [[32mPASS[0m in 0.92s]
+[2026-03-29T11:19:17.305+0000] {subprocess.py:93} INFO - [0m11:19:17  14 of 51 PASS not_null_stg_park_entry_event_id ................................. [[32mPASS[0m in 0.97s]
+[2026-03-29T11:19:17.309+0000] {subprocess.py:93} INFO - [0m11:19:17  19 of 51 START test not_null_stg_queue_entry_wait_time_mins .................... [RUN]
+[2026-03-29T11:19:17.309+0000] {subprocess.py:93} INFO - [0m11:19:17  20 of 51 START test not_null_stg_ticket_sales_event_id ......................... [RUN]
+[2026-03-29T11:19:17.414+0000] {subprocess.py:93} INFO - [0m11:19:17  17 of 51 PASS not_null_stg_queue_entry_event_id ................................ [[32mPASS[0m in 0.67s]
+[2026-03-29T11:19:17.416+0000] {subprocess.py:93} INFO - [0m11:19:17  21 of 51 START test not_null_stg_ticket_sales_order_id ......................... [RUN]
+[2026-03-29T11:19:17.899+0000] {subprocess.py:93} INFO - [0m11:19:17  18 of 51 PASS not_null_stg_queue_entry_guest_id ................................ [[32mPASS[0m in 0.78s]
+[2026-03-29T11:19:17.905+0000] {subprocess.py:93} INFO - [0m11:19:17  22 of 51 START test not_null_stg_ticket_sales_total_price ...................... [RUN]
+[2026-03-29T11:19:18.064+0000] {subprocess.py:93} INFO - [0m11:19:18  21 of 51 PASS not_null_stg_ticket_sales_order_id ............................... [[32mPASS[0m in 0.65s]
+[2026-03-29T11:19:18.067+0000] {subprocess.py:93} INFO - [0m11:19:18  23 of 51 START test source_not_null_raw_RAW_FOOD_SALE_EVENT_ID ................. [RUN]
+[2026-03-29T11:19:18.155+0000] {subprocess.py:93} INFO - [0m11:19:18  19 of 51 PASS not_null_stg_queue_entry_wait_time_mins .......................... [[32mPASS[0m in 0.85s]
+[2026-03-29T11:19:18.158+0000] {subprocess.py:93} INFO - [0m11:19:18  24 of 51 START test source_not_null_raw_RAW_FOOD_SALE_ORDER_ID ................. [RUN]
+[2026-03-29T11:19:18.168+0000] {subprocess.py:93} INFO - [0m11:19:18  20 of 51 PASS not_null_stg_ticket_sales_event_id ............................... [[32mPASS[0m in 0.86s]
+[2026-03-29T11:19:18.173+0000] {subprocess.py:93} INFO - [0m11:19:18  25 of 51 START test source_not_null_raw_RAW_GIFT_STORE_SALE_EVENT_ID ........... [RUN]
+[2026-03-29T11:19:18.663+0000] {subprocess.py:93} INFO - [0m11:19:18  23 of 51 PASS source_not_null_raw_RAW_FOOD_SALE_EVENT_ID ....................... [[32mPASS[0m in 0.60s]
+[2026-03-29T11:19:18.666+0000] {subprocess.py:93} INFO - [0m11:19:18  26 of 51 START test source_not_null_raw_RAW_GIFT_STORE_SALE_ORDER_ID ........... [RUN]
+[2026-03-29T11:19:18.782+0000] {subprocess.py:93} INFO - [0m11:19:18  24 of 51 PASS source_not_null_raw_RAW_FOOD_SALE_ORDER_ID ....................... [[32mPASS[0m in 0.62s]
+[2026-03-29T11:19:18.784+0000] {subprocess.py:93} INFO - [0m11:19:18  27 of 51 START test source_not_null_raw_RAW_HOTEL_CHECKIN_EVENT_ID ............. [RUN]
+[2026-03-29T11:19:18.791+0000] {subprocess.py:93} INFO - [0m11:19:18  25 of 51 PASS source_not_null_raw_RAW_GIFT_STORE_SALE_EVENT_ID ................. [[32mPASS[0m in 0.62s]
+[2026-03-29T11:19:18.793+0000] {subprocess.py:93} INFO - [0m11:19:18  28 of 51 START test source_not_null_raw_RAW_HOTEL_CHECKIN_RESERVATION_ID ....... [RUN]
+[2026-03-29T11:19:18.819+0000] {subprocess.py:93} INFO - [0m11:19:18  22 of 51 PASS not_null_stg_ticket_sales_total_price ............................ [[32mPASS[0m in 0.91s]
+[2026-03-29T11:19:18.821+0000] {subprocess.py:93} INFO - [0m11:19:18  29 of 51 START test source_not_null_raw_RAW_PARK_ENTRY_EVENT_ID ................ [RUN]
+[2026-03-29T11:19:19.266+0000] {subprocess.py:93} INFO - [0m11:19:19  26 of 51 PASS source_not_null_raw_RAW_GIFT_STORE_SALE_ORDER_ID ................. [[32mPASS[0m in 0.60s]
+[2026-03-29T11:19:19.272+0000] {subprocess.py:93} INFO - [0m11:19:19  30 of 51 START test source_not_null_raw_RAW_PARK_ENTRY_GUEST_ID ................ [RUN]
+[2026-03-29T11:19:19.319+0000] {subprocess.py:93} INFO - [0m11:19:19  28 of 51 PASS source_not_null_raw_RAW_HOTEL_CHECKIN_RESERVATION_ID ............. [[32mPASS[0m in 0.53s]
+[2026-03-29T11:19:19.322+0000] {subprocess.py:93} INFO - [0m11:19:19  31 of 51 START test source_not_null_raw_RAW_PARK_ENTRY_PARK .................... [RUN]
+[2026-03-29T11:19:19.442+0000] {subprocess.py:93} INFO - [0m11:19:19  29 of 51 PASS source_not_null_raw_RAW_PARK_ENTRY_EVENT_ID ...................... [[32mPASS[0m in 0.62s]
+[2026-03-29T11:19:19.445+0000] {subprocess.py:93} INFO - [0m11:19:19  32 of 51 START test source_not_null_raw_RAW_QUEUE_ENTRY_EVENT_ID ............... [RUN]
+[2026-03-29T11:19:19.502+0000] {subprocess.py:93} INFO - [0m11:19:19  27 of 51 PASS source_not_null_raw_RAW_HOTEL_CHECKIN_EVENT_ID ................... [[32mPASS[0m in 0.72s]
+[2026-03-29T11:19:19.509+0000] {subprocess.py:93} INFO - [0m11:19:19  33 of 51 START test source_not_null_raw_RAW_QUEUE_ENTRY_GUEST_ID ............... [RUN]
+[2026-03-29T11:19:19.933+0000] {subprocess.py:93} INFO - [0m11:19:19  30 of 51 PASS source_not_null_raw_RAW_PARK_ENTRY_GUEST_ID ...................... [[32mPASS[0m in 0.66s]
+[2026-03-29T11:19:19.937+0000] {subprocess.py:93} INFO - [0m11:19:19  34 of 51 START test source_not_null_raw_RAW_TICKET_SALE_GATE_EVENT_ID .......... [RUN]
+[2026-03-29T11:19:19.947+0000] {subprocess.py:93} INFO - [0m11:19:19  31 of 51 PASS source_not_null_raw_RAW_PARK_ENTRY_PARK .......................... [[32mPASS[0m in 0.62s]
+[2026-03-29T11:19:19.952+0000] {subprocess.py:93} INFO - [0m11:19:19  35 of 51 START test source_not_null_raw_RAW_TICKET_SALE_GATE_ORDER_ID .......... [RUN]
+[2026-03-29T11:19:20.350+0000] {subprocess.py:93} INFO - [0m11:19:20  32 of 51 PASS source_not_null_raw_RAW_QUEUE_ENTRY_EVENT_ID ..................... [[32mPASS[0m in 0.90s]
+[2026-03-29T11:19:20.353+0000] {subprocess.py:93} INFO - [0m11:19:20  36 of 51 START test source_not_null_raw_RAW_TICKET_SALE_ONLINE_EVENT_ID ........ [RUN]
+[2026-03-29T11:19:20.428+0000] {subprocess.py:93} INFO - [0m11:19:20  33 of 51 PASS source_not_null_raw_RAW_QUEUE_ENTRY_GUEST_ID ..................... [[32mPASS[0m in 0.92s]
+[2026-03-29T11:19:20.431+0000] {subprocess.py:93} INFO - [0m11:19:20  37 of 51 START test source_not_null_raw_RAW_TICKET_SALE_ONLINE_ORDER_ID ........ [RUN]
+[2026-03-29T11:19:20.484+0000] {subprocess.py:93} INFO - [0m11:19:20  34 of 51 PASS source_not_null_raw_RAW_TICKET_SALE_GATE_EVENT_ID ................ [[32mPASS[0m in 0.55s]
+[2026-03-29T11:19:20.487+0000] {subprocess.py:93} INFO - [0m11:19:20  38 of 51 START test source_not_null_raw_RAW_TICKET_SALE_ONLINE_TOTAL_PRICE ..... [RUN]
+[2026-03-29T11:19:20.519+0000] {subprocess.py:93} INFO - [0m11:19:20  35 of 51 PASS source_not_null_raw_RAW_TICKET_SALE_GATE_ORDER_ID ................ [[32mPASS[0m in 0.57s]
+[2026-03-29T11:19:20.521+0000] {subprocess.py:93} INFO - [0m11:19:20  39 of 51 START test source_unique_raw_RAW_FOOD_SALE_EVENT_ID ................... [RUN]
+[2026-03-29T11:19:20.952+0000] {subprocess.py:93} INFO - [0m11:19:20  37 of 51 PASS source_not_null_raw_RAW_TICKET_SALE_ONLINE_ORDER_ID .............. [[32mPASS[0m in 0.52s]
+[2026-03-29T11:19:20.957+0000] {subprocess.py:93} INFO - [0m11:19:20  40 of 51 START test source_unique_raw_RAW_GIFT_STORE_SALE_EVENT_ID ............. [RUN]
+[2026-03-29T11:19:20.973+0000] {subprocess.py:93} INFO - [0m11:19:20  36 of 51 PASS source_not_null_raw_RAW_TICKET_SALE_ONLINE_EVENT_ID .............. [[32mPASS[0m in 0.62s]
+[2026-03-29T11:19:20.975+0000] {subprocess.py:93} INFO - [0m11:19:20  41 of 51 START test source_unique_raw_RAW_HOTEL_CHECKIN_EVENT_ID ............... [RUN]
+[2026-03-29T11:19:21.077+0000] {subprocess.py:93} INFO - [0m11:19:21  38 of 51 PASS source_not_null_raw_RAW_TICKET_SALE_ONLINE_TOTAL_PRICE ........... [[32mPASS[0m in 0.59s]
+[2026-03-29T11:19:21.079+0000] {subprocess.py:93} INFO - [0m11:19:21  42 of 51 START test source_unique_raw_RAW_PARK_ENTRY_EVENT_ID .................. [RUN]
+[2026-03-29T11:19:21.118+0000] {subprocess.py:93} INFO - [0m11:19:21  39 of 51 PASS source_unique_raw_RAW_FOOD_SALE_EVENT_ID ......................... [[32mPASS[0m in 0.60s]
+[2026-03-29T11:19:21.121+0000] {subprocess.py:93} INFO - [0m11:19:21  43 of 51 START test source_unique_raw_RAW_QUEUE_ENTRY_EVENT_ID ................. [RUN]
+[2026-03-29T11:19:21.541+0000] {subprocess.py:93} INFO - [0m11:19:21  40 of 51 PASS source_unique_raw_RAW_GIFT_STORE_SALE_EVENT_ID ................... [[32mPASS[0m in 0.58s]
+[2026-03-29T11:19:21.543+0000] {subprocess.py:93} INFO - [0m11:19:21  44 of 51 START test source_unique_raw_RAW_TICKET_SALE_GATE_EVENT_ID ............ [RUN]
+[2026-03-29T11:19:21.565+0000] {subprocess.py:93} INFO - [0m11:19:21  41 of 51 PASS source_unique_raw_RAW_HOTEL_CHECKIN_EVENT_ID ..................... [[32mPASS[0m in 0.59s]
+[2026-03-29T11:19:21.569+0000] {subprocess.py:93} INFO - [0m11:19:21  45 of 51 START test source_unique_raw_RAW_TICKET_SALE_ONLINE_EVENT_ID .......... [RUN]
+[2026-03-29T11:19:21.693+0000] {subprocess.py:93} INFO - [0m11:19:21  42 of 51 PASS source_unique_raw_RAW_PARK_ENTRY_EVENT_ID ........................ [[32mPASS[0m in 0.61s]
+[2026-03-29T11:19:21.696+0000] {subprocess.py:93} INFO - [0m11:19:21  46 of 51 START test unique_stg_food_sales_line_item_id ......................... [RUN]
+[2026-03-29T11:19:21.702+0000] {subprocess.py:93} INFO - [0m11:19:21  43 of 51 PASS source_unique_raw_RAW_QUEUE_ENTRY_EVENT_ID ....................... [[32mPASS[0m in 0.58s]
+[2026-03-29T11:19:21.704+0000] {subprocess.py:93} INFO - [0m11:19:21  47 of 51 START test unique_stg_gift_store_sales_line_item_id ................... [RUN]
+[2026-03-29T11:19:22.131+0000] {subprocess.py:93} INFO - [0m11:19:22  44 of 51 PASS source_unique_raw_RAW_TICKET_SALE_GATE_EVENT_ID .................. [[32mPASS[0m in 0.59s]
+[2026-03-29T11:19:22.134+0000] {subprocess.py:93} INFO - [0m11:19:22  48 of 51 START test unique_stg_hotel_checkin_event_id .......................... [RUN]
+[2026-03-29T11:19:22.152+0000] {subprocess.py:93} INFO - [0m11:19:22  45 of 51 PASS source_unique_raw_RAW_TICKET_SALE_ONLINE_EVENT_ID ................ [[32mPASS[0m in 0.58s]
+[2026-03-29T11:19:22.160+0000] {subprocess.py:93} INFO - [0m11:19:22  49 of 51 START test unique_stg_park_entry_event_id ............................. [RUN]
+[2026-03-29T11:19:22.385+0000] {subprocess.py:93} INFO - [0m11:19:22  46 of 51 PASS unique_stg_food_sales_line_item_id ............................... [[32mPASS[0m in 0.69s]
+[2026-03-29T11:19:22.387+0000] {subprocess.py:93} INFO - [0m11:19:22  50 of 51 START test unique_stg_queue_entry_event_id ............................ [RUN]
+[2026-03-29T11:19:22.396+0000] {subprocess.py:93} INFO - [0m11:19:22  47 of 51 PASS unique_stg_gift_store_sales_line_item_id ......................... [[32mPASS[0m in 0.69s]
+[2026-03-29T11:19:22.399+0000] {subprocess.py:93} INFO - [0m11:19:22  51 of 51 START test unique_stg_ticket_sales_event_id ........................... [RUN]
+[2026-03-29T11:19:22.815+0000] {subprocess.py:93} INFO - [0m11:19:22  49 of 51 PASS unique_stg_park_entry_event_id ................................... [[32mPASS[0m in 0.65s]
+[2026-03-29T11:19:22.819+0000] {subprocess.py:93} INFO - [0m11:19:22  48 of 51 PASS unique_stg_hotel_checkin_event_id ................................ [[32mPASS[0m in 0.68s]
+[2026-03-29T11:19:23.011+0000] {subprocess.py:93} INFO - [0m11:19:23  51 of 51 PASS unique_stg_ticket_sales_event_id ................................. [[32mPASS[0m in 0.61s]
+[2026-03-29T11:19:23.058+0000] {subprocess.py:93} INFO - [0m11:19:23  50 of 51 PASS unique_stg_queue_entry_event_id .................................. [[32mPASS[0m in 0.67s]
+[2026-03-29T11:19:23.065+0000] {subprocess.py:93} INFO - [0m11:19:23
+[2026-03-29T11:19:23.065+0000] {subprocess.py:93} INFO - [0m11:19:23  Finished running 51 tests in 0 hours 0 minutes and 9.75 seconds (9.75s).
+[2026-03-29T11:19:23.083+0000] {subprocess.py:93} INFO - [0m11:19:23
+[2026-03-29T11:19:23.084+0000] {subprocess.py:93} INFO - [0m11:19:23  [32mCompleted successfully[0m
+[2026-03-29T11:19:23.084+0000] {subprocess.py:93} INFO - [0m11:19:23
+[2026-03-29T11:19:23.085+0000] {subprocess.py:93} INFO - [0m11:19:23  Done. PASS=51 WARN=0 ERROR=0 SKIP=0 TOTAL=51
+[2026-03-29T11:19:23.580+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-29T11:19:23.581+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-29T11:19:23.599+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=fantasyland_dbt_silver, task_id=dbt_test_silver, run_id=manual__2026-03-29T11:19:02.189271+00:00, execution_date=20260329T111902, start_date=20260329T111911, end_date=20260329T111923
+[2026-03-29T11:19:23.632+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-03-29T11:19:23.641+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-29T11:19:23.644+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

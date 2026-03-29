@@ -1,0 +1,47 @@
+
+.env
+*.env
+.env.*
+!.env.example        # allow the example file through
+
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+
+# dbt
+
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/.user.yml
+profiles.yml         
+
+
+# Airflow
+
+logs/
+airflow.db
+airflow.cfg
+standalone_admin_password.txt
+
+*.csv
+!seed/              # allow seed folder structure through
+performances.csv
+performance_cast.csv
+performance_characters.csv
+fantasyland_guests.csv
+
+docker-compose.override.yml

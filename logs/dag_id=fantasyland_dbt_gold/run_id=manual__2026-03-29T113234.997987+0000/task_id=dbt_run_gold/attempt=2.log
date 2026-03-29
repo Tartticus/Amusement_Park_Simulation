@@ -1,0 +1,62 @@
+[2026-03-29T11:35:44.261+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-29T11:35:44.280+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fantasyland_dbt_gold.dbt_run_gold manual__2026-03-29T11:32:34.997987+00:00 [queued]>
+[2026-03-29T11:35:44.285+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fantasyland_dbt_gold.dbt_run_gold manual__2026-03-29T11:32:34.997987+00:00 [queued]>
+[2026-03-29T11:35:44.285+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2026-03-29T11:35:44.293+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_gold> on 2026-03-29 11:32:34.997987+00:00
+[2026-03-29T11:35:44.298+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'fantasyland_dbt_gold', 'dbt_run_gold', 'manual__2026-03-29T11:32:34.997987+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/dbt_gold.py', '--cfg-path', '/tmp/tmpvsckqxwa']
+[2026-03-29T11:35:44.300+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2767) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-29T11:35:44.300+0000] {standard_task_runner.py:91} INFO - Job 46: Subtask dbt_run_gold
+[2026-03-29T11:35:44.301+0000] {standard_task_runner.py:63} INFO - Started process 2768 to run task
+[2026-03-29T11:35:44.342+0000] {task_command.py:426} INFO - Running <TaskInstance: fantasyland_dbt_gold.dbt_run_gold manual__2026-03-29T11:32:34.997987+00:00 [running]> on host 22272d6c51c8
+[2026-03-29T11:35:44.394+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='fantasyland-data' AIRFLOW_CTX_DAG_ID='fantasyland_dbt_gold' AIRFLOW_CTX_TASK_ID='dbt_run_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-03-29T11:32:34.997987+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-29T11:32:34.997987+00:00'
+[2026-03-29T11:35:44.395+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-29T11:35:44.403+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-29T11:35:44.404+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/project/dbt && dbt run --select gold.*']
+[2026-03-29T11:35:44.410+0000] {subprocess.py:86} INFO - Output:
+[2026-03-29T11:35:45.721+0000] {subprocess.py:93} INFO - [0m11:35:45  Running with dbt=1.7.19
+[2026-03-29T11:35:46.232+0000] {subprocess.py:93} INFO - [0m11:35:46  Registered adapter: snowflake=1.7.4
+[2026-03-29T11:35:46.431+0000] {subprocess.py:93} INFO - [0m11:35:46  Found 11 models, 70 tests, 7 sources, 0 exposures, 0 metrics, 432 macros, 0 groups, 0 semantic models
+[2026-03-29T11:35:46.435+0000] {subprocess.py:93} INFO - [0m11:35:46
+[2026-03-29T11:35:48.142+0000] {subprocess.py:93} INFO - [0m11:35:48  Concurrency: 4 threads (target='dev')
+[2026-03-29T11:35:48.143+0000] {subprocess.py:93} INFO - [0m11:35:48
+[2026-03-29T11:35:48.151+0000] {subprocess.py:93} INFO - [0m11:35:48  1 of 5 START sql incremental model GOLD.fact_food_sale ......................... [RUN]
+[2026-03-29T11:35:48.152+0000] {subprocess.py:93} INFO - [0m11:35:48  2 of 5 START sql incremental model GOLD.fact_gift_store_sale ................... [RUN]
+[2026-03-29T11:35:48.152+0000] {subprocess.py:93} INFO - [0m11:35:48  3 of 5 START sql incremental model GOLD.fact_park_entry ........................ [RUN]
+[2026-03-29T11:35:48.153+0000] {subprocess.py:93} INFO - [0m11:35:48  4 of 5 START sql incremental model GOLD.fact_queue_entry ....................... [RUN]
+[2026-03-29T11:35:49.002+0000] {subprocess.py:93} INFO - [0m11:35:49  3 of 5 ERROR creating sql incremental model GOLD.fact_park_entry ............... [[31mERROR[0m in 0.85s]
+[2026-03-29T11:35:49.004+0000] {subprocess.py:93} INFO - [0m11:35:49  5 of 5 START sql incremental model GOLD.fact_ticket_sale ....................... [RUN]
+[2026-03-29T11:35:49.976+0000] {subprocess.py:93} INFO - [0m11:35:49  4 of 5 OK created sql incremental model GOLD.fact_queue_entry .................. [[32mSUCCESS 0[0m in 1.82s]
+[2026-03-29T11:35:50.113+0000] {subprocess.py:93} INFO - [0m11:35:50  2 of 5 OK created sql incremental model GOLD.fact_gift_store_sale .............. [[32mSUCCESS 0[0m in 1.96s]
+[2026-03-29T11:35:50.147+0000] {subprocess.py:93} INFO - [0m11:35:50  1 of 5 OK created sql incremental model GOLD.fact_food_sale .................... [[32mSUCCESS 0[0m in 1.99s]
+[2026-03-29T11:35:50.597+0000] {subprocess.py:93} INFO - [0m11:35:50  5 of 5 OK created sql incremental model GOLD.fact_ticket_sale .................. [[32mSUCCESS 0[0m in 1.59s]
+[2026-03-29T11:35:50.603+0000] {subprocess.py:93} INFO - [0m11:35:50
+[2026-03-29T11:35:50.603+0000] {subprocess.py:93} INFO - [0m11:35:50  Finished running 5 incremental models in 0 hours 0 minutes and 4.17 seconds (4.17s).
+[2026-03-29T11:35:50.618+0000] {subprocess.py:93} INFO - [0m11:35:50
+[2026-03-29T11:35:50.619+0000] {subprocess.py:93} INFO - [0m11:35:50  [31mCompleted with 1 error and 0 warnings:[0m
+[2026-03-29T11:35:50.619+0000] {subprocess.py:93} INFO - [0m11:35:50
+[2026-03-29T11:35:50.620+0000] {subprocess.py:93} INFO - [0m11:35:50    Database Error in model fact_park_entry (models/gold/fact_park_entry.sql)
+[2026-03-29T11:35:50.621+0000] {subprocess.py:93} INFO -   002036 (42601): SQL compilation error:
+[2026-03-29T11:35:50.621+0000] {subprocess.py:93} INFO -   Subquery containing correlated aggregate function [MAX(STG_PARK_ENTRY.LOADED_AT)] can only appear in having or select clause
+[2026-03-29T11:35:50.621+0000] {subprocess.py:93} INFO - [0m11:35:50
+[2026-03-29T11:35:50.622+0000] {subprocess.py:93} INFO - [0m11:35:50  Done. PASS=4 WARN=0 ERROR=1 SKIP=0 TOTAL=5
+[2026-03-29T11:35:51.376+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-03-29T11:35:51.376+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-29T11:35:51.382+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-03-29T11:35:51.385+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=fantasyland_dbt_gold, task_id=dbt_run_gold, run_id=manual__2026-03-29T11:32:34.997987+00:00, execution_date=20260329T113234, start_date=20260329T113544, end_date=20260329T113551
+[2026-03-29T11:35:51.394+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 46 for task dbt_run_gold (Bash command failed. The command returned a non-zero exit code 1.; 2768)
+[2026-03-29T11:35:51.405+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-03-29T11:35:51.417+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-29T11:35:51.421+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

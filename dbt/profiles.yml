@@ -1,0 +1,27 @@
+fantasyland:
+  target: dev
+  outputs:
+ 
+    dev:
+      type: snowflake
+      account: "{{ env_var('Snow_Account') }}"
+      user: AmusmentParkAdmin
+      password: "{{ env_var('Amusement_Pass') }}"
+      role: AMUSEMENT_INSERT
+      schema: CORE
+      database: AMUSEMENTPARK
+      warehouse: COMPUTE_WH      
+      threads: 4
+      client_session_keep_alive: false
+ 
+    prod:
+      type: snowflake
+      account: "{{ env_var('Snow_Account') }}"
+      user: AmusmentParkAdmin
+      password: "{{ env_var('Amusement_Pass') }}"
+      role: AMUSEMENT_INSERT
+      schema: CORE
+      database: AMUSEMENTPARK
+      warehouse: COMPUTE_WH
+      threads: 8
+      client_session_keep_alive: false

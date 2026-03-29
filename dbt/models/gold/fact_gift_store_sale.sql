@@ -1,0 +1,48 @@
+{{
+    config(
+        materialized = 'incremental',
+        unique_key   = 'line_item_id',
+        schema       = 'GOLD'
+    )
+}}
+
+with silver as (
+
+    select *
+    from {{ ref('stg_gift_store_sales') }}
+
+    {% if is_incremental() %}
+        where loaded_at > (select max(event_timestamp) from {{ this }})
+    {% endif %}
+
+),
+
+with_dims as (
+
+    select
+        s.line_item_id,
+        s.event_id,
+        s.order_id,
+        s.guest_id,
+        p.park_id,
+        d.date_id,
+        s.event_hour,
+        s.store,
+        s.item_name,
+        s.item_category,
+        s.quantity,
+        s.unit_price,
+        s.subtotal,
+        s.payment_method,
+        s.event_timestamp,
+        s.loaded_at
+
+    from silver s
+    join AMUSEMENTPARK.GOLD.DIM_PARK p
+        on p.park_name = s.park
+    join AMUSEMENTPARK.GOLD.DIM_DATE d
+        on d.full_date = s.event_date
+
+)
+
+select * from with_dims

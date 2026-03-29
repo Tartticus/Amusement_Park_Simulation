@@ -1,0 +1,43 @@
+[2026-03-29T11:26:46.208+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-29T11:26:46.228+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fantasyland_dbt_gold.dbt_run_gold manual__2026-03-29T11:26:45.493249+00:00 [queued]>
+[2026-03-29T11:26:46.232+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fantasyland_dbt_gold.dbt_run_gold manual__2026-03-29T11:26:45.493249+00:00 [queued]>
+[2026-03-29T11:26:46.233+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-03-29T11:26:46.242+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_gold> on 2026-03-29 11:26:45.493249+00:00
+[2026-03-29T11:26:46.247+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'fantasyland_dbt_gold', 'dbt_run_gold', 'manual__2026-03-29T11:26:45.493249+00:00', '--job-id', '41', '--raw', '--subdir', 'DAGS_FOLDER/dbt_gold.py', '--cfg-path', '/tmp/tmp4p38vgc3']
+[2026-03-29T11:26:46.249+0000] {standard_task_runner.py:91} INFO - Job 41: Subtask dbt_run_gold
+[2026-03-29T11:26:46.249+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2004) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-29T11:26:46.250+0000] {standard_task_runner.py:63} INFO - Started process 2005 to run task
+[2026-03-29T11:26:46.291+0000] {task_command.py:426} INFO - Running <TaskInstance: fantasyland_dbt_gold.dbt_run_gold manual__2026-03-29T11:26:45.493249+00:00 [running]> on host 22272d6c51c8
+[2026-03-29T11:26:46.351+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='fantasyland-data' AIRFLOW_CTX_DAG_ID='fantasyland_dbt_gold' AIRFLOW_CTX_TASK_ID='dbt_run_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-03-29T11:26:45.493249+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-29T11:26:45.493249+00:00'
+[2026-03-29T11:26:46.352+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-29T11:26:46.361+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-29T11:26:46.362+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/project/dbt && dbt run --select gold.*']
+[2026-03-29T11:26:46.368+0000] {subprocess.py:86} INFO - Output:
+[2026-03-29T11:26:47.617+0000] {subprocess.py:93} INFO - [0m11:26:47  Running with dbt=1.7.19
+[2026-03-29T11:26:48.099+0000] {subprocess.py:93} INFO - [0m11:26:48  Registered adapter: snowflake=1.7.4
+[2026-03-29T11:26:48.252+0000] {subprocess.py:93} INFO - [0m11:26:48  Found 11 models, 70 tests, 7 sources, 0 exposures, 0 metrics, 432 macros, 0 groups, 0 semantic models
+[2026-03-29T11:26:48.254+0000] {subprocess.py:93} INFO - [0m11:26:48
+[2026-03-29T11:26:50.198+0000] {subprocess.py:93} INFO - [0m11:26:50  Concurrency: 4 threads (target='dev')
+[2026-03-29T11:26:50.199+0000] {subprocess.py:93} INFO - [0m11:26:50
+[2026-03-29T11:26:50.206+0000] {subprocess.py:93} INFO - [0m11:26:50  2 of 5 START sql incremental model GOLD.fact_gift_store_sale ................... [RUN]
+[2026-03-29T11:26:50.207+0000] {subprocess.py:93} INFO - [0m11:26:50  3 of 5 START sql incremental model GOLD.fact_park_entry ........................ [RUN]
+[2026-03-29T11:26:50.208+0000] {subprocess.py:93} INFO - [0m11:26:50  1 of 5 START sql incremental model GOLD.fact_food_sale ......................... [RUN]
+[2026-03-29T11:26:50.208+0000] {subprocess.py:93} INFO - [0m11:26:50  4 of 5 START sql incremental model GOLD.fact_queue_entry ....................... [RUN]
+[2026-03-29T11:26:52.224+0000] {subprocess.py:93} INFO - [0m11:26:52  4 of 5 OK created sql incremental model GOLD.fact_queue_entry .................. [[32mSUCCESS 0[0m in 2.01s]
+[2026-03-29T11:26:52.226+0000] {subprocess.py:93} INFO - [0m11:26:52  5 of 5 START sql incremental model GOLD.fact_ticket_sale ....................... [RUN]
+[2026-03-29T11:26:52.253+0000] {subprocess.py:93} INFO - [0m11:26:52  3 of 5 OK created sql incremental model GOLD.fact_park_entry ................... [[32mSUCCESS 0[0m in 2.04s]
+[2026-03-29T11:26:52.404+0000] {subprocess.py:93} INFO - [0m11:26:52  1 of 5 OK created sql incremental model GOLD.fact_food_sale .................... [[32mSUCCESS 0[0m in 2.19s]
+[2026-03-29T11:26:52.608+0000] {subprocess.py:93} INFO - [0m11:26:52  2 of 5 OK created sql incremental model GOLD.fact_gift_store_sale .............. [[32mSUCCESS 0[0m in 2.40s]
+[2026-03-29T11:26:54.490+0000] {subprocess.py:93} INFO - [0m11:26:54  5 of 5 OK created sql incremental model GOLD.fact_ticket_sale .................. [[32mSUCCESS 0[0m in 2.26s]
+[2026-03-29T11:26:54.495+0000] {subprocess.py:93} INFO - [0m11:26:54
+[2026-03-29T11:26:54.496+0000] {subprocess.py:93} INFO - [0m11:26:54  Finished running 5 incremental models in 0 hours 0 minutes and 6.24 seconds (6.24s).
+[2026-03-29T11:26:54.512+0000] {subprocess.py:93} INFO - [0m11:26:54
+[2026-03-29T11:26:54.513+0000] {subprocess.py:93} INFO - [0m11:26:54  [32mCompleted successfully[0m
+[2026-03-29T11:26:54.513+0000] {subprocess.py:93} INFO - [0m11:26:54
+[2026-03-29T11:26:54.514+0000] {subprocess.py:93} INFO - [0m11:26:54  Done. PASS=5 WARN=0 ERROR=0 SKIP=0 TOTAL=5
+[2026-03-29T11:26:56.403+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-29T11:26:56.404+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-29T11:26:56.425+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=fantasyland_dbt_gold, task_id=dbt_run_gold, run_id=manual__2026-03-29T11:26:45.493249+00:00, execution_date=20260329T112645, start_date=20260329T112646, end_date=20260329T112656
+[2026-03-29T11:26:56.455+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-03-29T11:26:56.469+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-03-29T11:26:56.472+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: raw
+    database: AMUSEMENTPARK
+    schema: RAW
+    description: "Bronze layer — raw events loaded from S3 via COPY INTO"
+
+    tables:
+      - name: RAW_PARK_ENTRY
+        description: "Guest park gate tap events from fantasyland-arrivals topic"
+        columns:
+          - name: EVENT_ID
+            tests: [unique, not_null]
+          - name: GUEST_ID
+            tests: [not_null]
+          - name: PARK
+            tests: [not_null]
+
+      - name: RAW_HOTEL_CHECKIN
+        description: "Guest hotel check-in events from fantasyland-arrivals topic"
+        columns:
+          - name: EVENT_ID
+            tests: [unique, not_null]
+          - name: RESERVATION_ID
+            tests: [not_null]
+
+      - name: RAW_QUEUE_ENTRY
+        description: "Guest ride queue entry events from fantasyland-arrivals topic"
+        columns:
+          - name: EVENT_ID
+            tests: [unique, not_null]
+          - name: GUEST_ID
+            tests: [not_null]
+
+      - name: RAW_TICKET_SALE_ONLINE
+        description: "Online ticket purchases from fantasyland-transactions topic"
+        columns:
+          - name: EVENT_ID
+            tests: [unique, not_null]
+          - name: ORDER_ID
+            tests: [not_null]
+          - name: TOTAL_PRICE
+            tests: [not_null]
+
+      - name: RAW_TICKET_SALE_GATE
+        description: "Gate ticket purchases from fantasyland-transactions topic"
+        columns:
+          - name: EVENT_ID
+            tests: [unique, not_null]
+          - name: ORDER_ID
+            tests: [not_null]
+
+      - name: RAW_FOOD_SALE
+        description: "Food and beverage purchases from fantasyland-transactions topic"
+        columns:
+          - name: EVENT_ID
+            tests: [unique, not_null]
+          - name: ORDER_ID
+            tests: [not_null]
+
+      - name: RAW_GIFT_STORE_SALE
+        description: "Gift store purchases from fantasyland-transactions topic"
+        columns:
+          - name: EVENT_ID
+            tests: [unique, not_null]
+          - name: ORDER_ID
+            tests: [not_null]

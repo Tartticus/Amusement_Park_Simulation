@@ -1,0 +1,48 @@
+[2026-03-29T11:01:35.942+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-29T11:01:35.964+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fantasyland_dbt_silver.dbt_run_silver manual__2026-03-29T11:01:32.127372+00:00 [queued]>
+[2026-03-29T11:01:35.969+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fantasyland_dbt_silver.dbt_run_silver manual__2026-03-29T11:01:32.127372+00:00 [queued]>
+[2026-03-29T11:01:35.970+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-03-29T11:01:35.978+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_silver> on 2026-03-29 11:01:32.127372+00:00
+[2026-03-29T11:01:35.985+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=311) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-29T11:01:35.984+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'fantasyland_dbt_silver', 'dbt_run_silver', 'manual__2026-03-29T11:01:32.127372+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/dbt_silver.py', '--cfg-path', '/tmp/tmp8yivspl_']
+[2026-03-29T11:01:35.986+0000] {standard_task_runner.py:63} INFO - Started process 312 to run task
+[2026-03-29T11:01:35.986+0000] {standard_task_runner.py:91} INFO - Job 11: Subtask dbt_run_silver
+[2026-03-29T11:01:36.031+0000] {task_command.py:426} INFO - Running <TaskInstance: fantasyland_dbt_silver.dbt_run_silver manual__2026-03-29T11:01:32.127372+00:00 [running]> on host 8de295f1e615
+[2026-03-29T11:01:36.095+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='fantasyland-data' AIRFLOW_CTX_DAG_ID='fantasyland_dbt_silver' AIRFLOW_CTX_TASK_ID='dbt_run_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-03-29T11:01:32.127372+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-29T11:01:32.127372+00:00'
+[2026-03-29T11:01:36.095+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-29T11:01:36.113+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-29T11:01:36.114+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/project/dbt && dbt run --select silver.*']
+[2026-03-29T11:01:36.120+0000] {subprocess.py:86} INFO - Output:
+[2026-03-29T11:01:37.468+0000] {subprocess.py:93} INFO - [0m11:01:37  Running with dbt=1.7.19
+[2026-03-29T11:01:38.455+0000] {subprocess.py:93} INFO - [0m11:01:38  Registered adapter: snowflake=1.7.4
+[2026-03-29T11:01:38.462+0000] {subprocess.py:93} INFO - [0m11:01:38  Unable to do partial parsing because saved manifest not found. Starting full parse.
+[2026-03-29T11:01:39.262+0000] {subprocess.py:93} INFO - [0m11:01:39  Found 11 models, 70 tests, 7 sources, 0 exposures, 0 metrics, 431 macros, 0 groups, 0 semantic models
+[2026-03-29T11:01:39.265+0000] {subprocess.py:93} INFO - [0m11:01:39
+[2026-03-29T11:01:40.354+0000] {subprocess.py:93} INFO - [0m11:01:40
+[2026-03-29T11:01:40.355+0000] {subprocess.py:93} INFO - [0m11:01:40  Finished running  in 0 hours 0 minutes and 1.09 seconds (1.09s).
+[2026-03-29T11:01:40.356+0000] {subprocess.py:93} INFO - [0m11:01:40  Encountered an error:
+[2026-03-29T11:01:40.356+0000] {subprocess.py:93} INFO - Runtime Error
+[2026-03-29T11:01:40.356+0000] {subprocess.py:93} INFO -   Database error while listing schemas in database "AMUSEMENTPARK"
+[2026-03-29T11:01:40.357+0000] {subprocess.py:93} INFO -   Database Error
+[2026-03-29T11:01:40.357+0000] {subprocess.py:93} INFO -     250001 (08001): Failed to connect to DB: KXVXDWF-VGA63262.snowflakecomputing.com:443. Multi-factor authentication is required for this account. Log in to Snowsight to enroll.
+[2026-03-29T11:01:40.996+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-03-29T11:01:40.997+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-29T11:01:41.005+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-03-29T11:01:41.008+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=fantasyland_dbt_silver, task_id=dbt_run_silver, run_id=manual__2026-03-29T11:01:32.127372+00:00, execution_date=20260329T110132, start_date=20260329T110135, end_date=20260329T110141
+[2026-03-29T11:01:41.019+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 11 for task dbt_run_silver (Bash command failed. The command returned a non-zero exit code 2.; 312)
+[2026-03-29T11:01:41.028+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-03-29T11:01:41.040+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-29T11:01:41.044+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

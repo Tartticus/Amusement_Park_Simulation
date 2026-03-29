@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: fact_park_entry
+    description: "Park gate entries with dim surrogate keys"
+    columns:
+      - name: event_id
+        tests: [unique, not_null]
+      - name: guest_id
+        tests: [not_null]
+      - name: park_id
+        tests: [not_null]
+      - name: date_id
+        tests: [not_null]
+
+  - name: fact_queue_entry
+    description: "Ride queue entries with dim surrogate keys"
+    columns:
+      - name: event_id
+        tests: [unique, not_null]
+      - name: ride_id
+        tests: [not_null]
+      - name: wait_time_mins
+        tests: [not_null]
+
+  - name: fact_ticket_sale
+    description: "Ticket sales — online and gate combined — with dim keys"
+    columns:
+      - name: event_id
+        tests: [unique, not_null]
+      - name: total_price
+        tests: [not_null]
+      - name: channel
+        tests:
+          - accepted_values:
+              values: ["online", "gate"]
+
+  - name: fact_food_sale
+    description: "Food sale line items with dim surrogate keys"
+    columns:
+      - name: line_item_id
+        tests: [unique, not_null]
+      - name: subtotal
+        tests: [not_null]
+
+  - name: fact_gift_store_sale
+    description: "Gift store sale line items with dim surrogate keys"
+    columns:
+      - name: line_item_id
+        tests: [unique, not_null]
+      - name: subtotal
+        tests: [not_null]

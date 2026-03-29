@@ -1,0 +1,30 @@
+[2026-03-29T10:15:59.418+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-29T10:15:59.437+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fantasyland_arrivals_load.load_arrivals_from_s3 manual__2026-03-29T10:15:58.979148+00:00 [queued]>
+[2026-03-29T10:15:59.442+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fantasyland_arrivals_load.load_arrivals_from_s3 manual__2026-03-29T10:15:58.979148+00:00 [queued]>
+[2026-03-29T10:15:59.443+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-03-29T10:15:59.452+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): load_arrivals_from_s3> on 2026-03-29 10:15:58.979148+00:00
+[2026-03-29T10:15:59.458+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'fantasyland_arrivals_load', 'load_arrivals_from_s3', 'manual__2026-03-29T10:15:58.979148+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/arrivals_load.py', '--cfg-path', '/tmp/tmprskzm3ko']
+[2026-03-29T10:15:59.460+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=549) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-29T10:15:59.460+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask load_arrivals_from_s3
+[2026-03-29T10:15:59.460+0000] {standard_task_runner.py:63} INFO - Started process 550 to run task
+[2026-03-29T10:15:59.506+0000] {task_command.py:426} INFO - Running <TaskInstance: fantasyland_arrivals_load.load_arrivals_from_s3 manual__2026-03-29T10:15:58.979148+00:00 [running]> on host 8af09d993c34
+[2026-03-29T10:15:59.541+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/utils/context.py:212 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2026-03-29T10:15:59.565+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='fantasyland-data' AIRFLOW_CTX_DAG_ID='fantasyland_arrivals_load' AIRFLOW_CTX_TASK_ID='load_arrivals_from_s3' AIRFLOW_CTX_EXECUTION_DATE='2026-03-29T10:15:58.979148+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-29T10:15:58.979148+00:00'
+[2026-03-29T10:15:59.565+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-29T10:15:59.574+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-29T10:15:59.575+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/project/python_etl/s3_bucket_copy.py arrivals 2026-03-29 10']
+[2026-03-29T10:15:59.581+0000] {subprocess.py:86} INFO - Output:
+[2026-03-29T10:16:05.407+0000] {subprocess.py:93} INFO - <snowflake.connector.cursor.SnowflakeCursor object at 0x78fe2179c2f0>
+[2026-03-29T10:16:05.407+0000] {subprocess.py:93} INFO - [Loader] Topic: arrivals | Partition: year=2026/month=03/day=29/hour=10
+[2026-03-29T10:16:05.408+0000] {subprocess.py:93} INFO - [Loader] Running 3 COPY INTO statements...
+[2026-03-29T10:16:05.408+0000] {subprocess.py:93} INFO -   ✗ RAW_PARK_ENTRY                      FAILED: 091003 (22000): Failure using stage area. Cause: [The AWS Access Key Id you provided is not valid.]
+[2026-03-29T10:16:05.408+0000] {subprocess.py:93} INFO -   ✗ RAW_HOTEL_CHECKIN                   FAILED: 091003 (22000): Failure using stage area. Cause: [The AWS Access Key Id you provided is not valid.]
+[2026-03-29T10:16:05.408+0000] {subprocess.py:93} INFO -   ✗ RAW_QUEUE_ENTRY                     FAILED: 091003 (22000): Failure using stage area. Cause: [The AWS Access Key Id you provided is not valid.]
+[2026-03-29T10:16:05.409+0000] {subprocess.py:93} INFO - 
+[2026-03-29T10:16:05.409+0000] {subprocess.py:93} INFO - [Loader] Done — 0 rows loaded, 3 failures.
+[2026-03-29T10:16:05.456+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-29T10:16:05.457+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-29T10:16:05.475+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=fantasyland_arrivals_load, task_id=load_arrivals_from_s3, run_id=manual__2026-03-29T10:15:58.979148+00:00, execution_date=20260329T101558, start_date=20260329T101559, end_date=20260329T101605
+[2026-03-29T10:16:05.486+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-03-29T10:16:05.495+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-29T10:16:05.498+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

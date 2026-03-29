@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: stg_park_entry
+    description: "Cleaned park gate entry events"
+    columns:
+      - name: event_id
+        tests: [unique, not_null]
+      - name: guest_id
+        tests: [not_null]
+      - name: park
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["mythic_kingdom", "fantasy_world", "wonder_cove"]
+      - name: ticket_type
+        tests:
+          - accepted_values:
+              values: ["day_pass", "annual_pass", "vip_pass", "family_bundle"]
+
+  - name: stg_hotel_checkin
+    description: "Cleaned hotel check-in events"
+    columns:
+      - name: event_id
+        tests: [unique, not_null]
+      - name: reservation_id
+        tests: [not_null]
+      - name: party_size
+        tests: [not_null]
+
+  - name: stg_queue_entry
+    description: "Cleaned ride queue entry events with wait category"
+    columns:
+      - name: event_id
+        tests: [unique, not_null]
+      - name: guest_id
+        tests: [not_null]
+      - name: wait_time_mins
+        tests: [not_null]
+      - name: wait_category
+        tests:
+          - accepted_values:
+              values: ["short", "medium", "long"]
+
+  - name: stg_ticket_sales
+    description: "Cleaned ticket sales — online and gate combined"
+    columns:
+      - name: event_id
+        tests: [unique, not_null]
+      - name: order_id
+        tests: [not_null]
+      - name: total_price
+        tests: [not_null]
+      - name: channel
+        tests:
+          - accepted_values:
+              values: ["online", "gate"]
+
+  - name: stg_food_sales
+    description: "Flattened food sale line items"
+    columns:
+      - name: line_item_id
+        tests: [unique, not_null]
+      - name: item_name
+        tests: [not_null]
+      - name: quantity
+        tests: [not_null]
+
+  - name: stg_gift_store_sales
+    description: "Flattened gift store sale line items"
+    columns:
+      - name: line_item_id
+        tests: [unique, not_null]
+      - name: item_name
+        tests: [not_null]
+      - name: quantity
+        tests: [not_null]

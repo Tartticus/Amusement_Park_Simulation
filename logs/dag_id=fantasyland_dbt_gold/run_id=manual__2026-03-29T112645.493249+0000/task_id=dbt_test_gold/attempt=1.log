@@ -1,0 +1,71 @@
+[2026-03-29T11:26:57.442+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-29T11:26:57.461+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fantasyland_dbt_gold.dbt_test_gold manual__2026-03-29T11:26:45.493249+00:00 [queued]>
+[2026-03-29T11:26:57.466+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fantasyland_dbt_gold.dbt_test_gold manual__2026-03-29T11:26:45.493249+00:00 [queued]>
+[2026-03-29T11:26:57.467+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-03-29T11:26:57.476+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_test_gold> on 2026-03-29 11:26:45.493249+00:00
+[2026-03-29T11:26:57.483+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2073) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-29T11:26:57.482+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'fantasyland_dbt_gold', 'dbt_test_gold', 'manual__2026-03-29T11:26:45.493249+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/dbt_gold.py', '--cfg-path', '/tmp/tmpbcqbvqyp']
+[2026-03-29T11:26:57.483+0000] {standard_task_runner.py:63} INFO - Started process 2074 to run task
+[2026-03-29T11:26:57.484+0000] {standard_task_runner.py:91} INFO - Job 42: Subtask dbt_test_gold
+[2026-03-29T11:26:57.526+0000] {task_command.py:426} INFO - Running <TaskInstance: fantasyland_dbt_gold.dbt_test_gold manual__2026-03-29T11:26:45.493249+00:00 [running]> on host 22272d6c51c8
+[2026-03-29T11:26:57.585+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='fantasyland-data' AIRFLOW_CTX_DAG_ID='fantasyland_dbt_gold' AIRFLOW_CTX_TASK_ID='dbt_test_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-03-29T11:26:45.493249+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-29T11:26:45.493249+00:00'
+[2026-03-29T11:26:57.586+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-29T11:26:57.594+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-29T11:26:57.595+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/project/dbt && dbt test --select gold.*']
+[2026-03-29T11:26:57.601+0000] {subprocess.py:86} INFO - Output:
+[2026-03-29T11:26:59.023+0000] {subprocess.py:93} INFO - [0m11:26:59  Running with dbt=1.7.19
+[2026-03-29T11:26:59.561+0000] {subprocess.py:93} INFO - [0m11:26:59  Registered adapter: snowflake=1.7.4
+[2026-03-29T11:26:59.753+0000] {subprocess.py:93} INFO - [0m11:26:59  Found 11 models, 70 tests, 7 sources, 0 exposures, 0 metrics, 432 macros, 0 groups, 0 semantic models
+[2026-03-29T11:26:59.756+0000] {subprocess.py:93} INFO - [0m11:26:59
+[2026-03-29T11:27:00.379+0000] {subprocess.py:93} INFO - [0m11:27:00  Concurrency: 4 threads (target='dev')
+[2026-03-29T11:27:00.380+0000] {subprocess.py:93} INFO - [0m11:27:00
+[2026-03-29T11:27:00.388+0000] {subprocess.py:93} INFO - [0m11:27:00  1 of 19 START test accepted_values_fact_ticket_sale_channel__online__gate ...... [RUN]
+[2026-03-29T11:27:00.389+0000] {subprocess.py:93} INFO - [0m11:27:00  2 of 19 START test not_null_fact_food_sale_line_item_id ........................ [RUN]
+[2026-03-29T11:27:00.390+0000] {subprocess.py:93} INFO - [0m11:27:00  3 of 19 START test not_null_fact_food_sale_subtotal ............................ [RUN]
+[2026-03-29T11:27:00.391+0000] {subprocess.py:93} INFO - [0m11:27:00  4 of 19 START test not_null_fact_gift_store_sale_line_item_id .................. [RUN]
+[2026-03-29T11:27:01.076+0000] {subprocess.py:93} INFO - [0m11:27:01  3 of 19 PASS not_null_fact_food_sale_subtotal .................................. [[32mPASS[0m in 0.68s]
+[2026-03-29T11:27:01.079+0000] {subprocess.py:93} INFO - [0m11:27:01  5 of 19 START test not_null_fact_gift_store_sale_subtotal ...................... [RUN]
+[2026-03-29T11:27:01.102+0000] {subprocess.py:93} INFO - [0m11:27:01  1 of 19 PASS accepted_values_fact_ticket_sale_channel__online__gate ............ [[32mPASS[0m in 0.71s]
+[2026-03-29T11:27:01.106+0000] {subprocess.py:93} INFO - [0m11:27:01  6 of 19 START test not_null_fact_park_entry_date_id ............................ [RUN]
+[2026-03-29T11:27:01.429+0000] {subprocess.py:93} INFO - [0m11:27:01  4 of 19 PASS not_null_fact_gift_store_sale_line_item_id ........................ [[32mPASS[0m in 1.04s]
+[2026-03-29T11:27:01.432+0000] {subprocess.py:93} INFO - [0m11:27:01  7 of 19 START test not_null_fact_park_entry_event_id ........................... [RUN]
+[2026-03-29T11:27:01.442+0000] {subprocess.py:93} INFO - [0m11:27:01  2 of 19 PASS not_null_fact_food_sale_line_item_id .............................. [[32mPASS[0m in 1.05s]
+[2026-03-29T11:27:01.445+0000] {subprocess.py:93} INFO - [0m11:27:01  8 of 19 START test not_null_fact_park_entry_guest_id ........................... [RUN]
+[2026-03-29T11:27:01.768+0000] {subprocess.py:93} INFO - [0m11:27:01  5 of 19 PASS not_null_fact_gift_store_sale_subtotal ............................ [[32mPASS[0m in 0.69s]
+[2026-03-29T11:27:01.773+0000] {subprocess.py:93} INFO - [0m11:27:01  9 of 19 START test not_null_fact_park_entry_park_id ............................ [RUN]
+[2026-03-29T11:27:02.070+0000] {subprocess.py:93} INFO - [0m11:27:02  6 of 19 PASS not_null_fact_park_entry_date_id .................................. [[32mPASS[0m in 0.96s]
+[2026-03-29T11:27:02.073+0000] {subprocess.py:93} INFO - [0m11:27:02  10 of 19 START test not_null_fact_queue_entry_event_id ......................... [RUN]
+[2026-03-29T11:27:02.113+0000] {subprocess.py:93} INFO - [0m11:27:02  7 of 19 PASS not_null_fact_park_entry_event_id ................................. [[32mPASS[0m in 0.68s]
+[2026-03-29T11:27:02.116+0000] {subprocess.py:93} INFO - [0m11:27:02  11 of 19 START test not_null_fact_queue_entry_ride_id .......................... [RUN]
+[2026-03-29T11:27:02.180+0000] {subprocess.py:93} INFO - [0m11:27:02  8 of 19 PASS not_null_fact_park_entry_guest_id ................................. [[32mPASS[0m in 0.73s]
+[2026-03-29T11:27:02.183+0000] {subprocess.py:93} INFO - [0m11:27:02  12 of 19 START test not_null_fact_queue_entry_wait_time_mins ................... [RUN]
+[2026-03-29T11:27:02.480+0000] {subprocess.py:93} INFO - [0m11:27:02  9 of 19 PASS not_null_fact_park_entry_park_id .................................. [[32mPASS[0m in 0.71s]
+[2026-03-29T11:27:02.483+0000] {subprocess.py:93} INFO - [0m11:27:02  13 of 19 START test not_null_fact_ticket_sale_event_id ......................... [RUN]
+[2026-03-29T11:27:02.776+0000] {subprocess.py:93} INFO - [0m11:27:02  10 of 19 PASS not_null_fact_queue_entry_event_id ............................... [[32mPASS[0m in 0.70s]
+[2026-03-29T11:27:02.779+0000] {subprocess.py:93} INFO - [0m11:27:02  14 of 19 START test not_null_fact_ticket_sale_total_price ...................... [RUN]
+[2026-03-29T11:27:02.785+0000] {subprocess.py:93} INFO - [0m11:27:02  12 of 19 PASS not_null_fact_queue_entry_wait_time_mins ......................... [[32mPASS[0m in 0.60s]
+[2026-03-29T11:27:02.787+0000] {subprocess.py:93} INFO - [0m11:27:02  15 of 19 START test unique_fact_food_sale_line_item_id ......................... [RUN]
+[2026-03-29T11:27:02.796+0000] {subprocess.py:93} INFO - [0m11:27:02  11 of 19 PASS not_null_fact_queue_entry_ride_id ................................ [[32mPASS[0m in 0.68s]
+[2026-03-29T11:27:02.802+0000] {subprocess.py:93} INFO - [0m11:27:02  16 of 19 START test unique_fact_gift_store_sale_line_item_id ................... [RUN]
+[2026-03-29T11:27:03.176+0000] {subprocess.py:93} INFO - [0m11:27:03  13 of 19 PASS not_null_fact_ticket_sale_event_id ............................... [[32mPASS[0m in 0.69s]
+[2026-03-29T11:27:03.178+0000] {subprocess.py:93} INFO - [0m11:27:03  17 of 19 START test unique_fact_park_entry_event_id ............................ [RUN]
+[2026-03-29T11:27:03.459+0000] {subprocess.py:93} INFO - [0m11:27:03  16 of 19 PASS unique_fact_gift_store_sale_line_item_id ......................... [[32mPASS[0m in 0.66s]
+[2026-03-29T11:27:03.463+0000] {subprocess.py:93} INFO - [0m11:27:03  18 of 19 START test unique_fact_queue_entry_event_id ........................... [RUN]
+[2026-03-29T11:27:03.499+0000] {subprocess.py:93} INFO - [0m11:27:03  14 of 19 PASS not_null_fact_ticket_sale_total_price ............................ [[32mPASS[0m in 0.72s]
+[2026-03-29T11:27:03.503+0000] {subprocess.py:93} INFO - [0m11:27:03  19 of 19 START test unique_fact_ticket_sale_event_id ........................... [RUN]
+[2026-03-29T11:27:03.533+0000] {subprocess.py:93} INFO - [0m11:27:03  15 of 19 PASS unique_fact_food_sale_line_item_id ............................... [[32mPASS[0m in 0.74s]
+[2026-03-29T11:27:03.828+0000] {subprocess.py:93} INFO - [0m11:27:03  17 of 19 PASS unique_fact_park_entry_event_id .................................. [[32mPASS[0m in 0.65s]
+[2026-03-29T11:27:04.151+0000] {subprocess.py:93} INFO - [0m11:27:04  18 of 19 PASS unique_fact_queue_entry_event_id ................................. [[32mPASS[0m in 0.69s]
+[2026-03-29T11:27:04.174+0000] {subprocess.py:93} INFO - [0m11:27:04  19 of 19 PASS unique_fact_ticket_sale_event_id ................................. [[32mPASS[0m in 0.67s]
+[2026-03-29T11:27:04.183+0000] {subprocess.py:93} INFO - [0m11:27:04
+[2026-03-29T11:27:04.183+0000] {subprocess.py:93} INFO - [0m11:27:04  Finished running 19 tests in 0 hours 0 minutes and 4.43 seconds (4.43s).
+[2026-03-29T11:27:04.203+0000] {subprocess.py:93} INFO - [0m11:27:04
+[2026-03-29T11:27:04.204+0000] {subprocess.py:93} INFO - [0m11:27:04  [32mCompleted successfully[0m
+[2026-03-29T11:27:04.205+0000] {subprocess.py:93} INFO - [0m11:27:04
+[2026-03-29T11:27:04.205+0000] {subprocess.py:93} INFO - [0m11:27:04  Done. PASS=19 WARN=0 ERROR=0 SKIP=0 TOTAL=19
+[2026-03-29T11:27:04.784+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-29T11:27:04.785+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-29T11:27:04.804+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=fantasyland_dbt_gold, task_id=dbt_test_gold, run_id=manual__2026-03-29T11:26:45.493249+00:00, execution_date=20260329T112645, start_date=20260329T112657, end_date=20260329T112704
+[2026-03-29T11:27:04.832+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-03-29T11:27:04.842+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-29T11:27:04.846+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
