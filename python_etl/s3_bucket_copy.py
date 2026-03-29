@@ -233,26 +233,32 @@ print(f"[Loader] Running {len(STATEMENTS)} COPY INTO statements...")
 for table_name, stmt in STATEMENTS:
     try:
         cur.execute(stmt)
-        result = cur.fetchone()
- 
-        # Snowflake returns either:
-        # - a tuple with row count as first element
-        # - a string like "Copy executed with 0 files processed."
-        # Handle both cases safely
+        result = cur.fetchall()
+        print(result)
         if result is None:
-            rows = 0
-        elif isinstance(result[0], int):
-            rows = result[0]
-        elif isinstance(result[0], str) and result[0].isdigit():
-            rows = int(result[0])
+            rows_loaded = 0
         else:
-            rows = 0  # "Copy executed with 0 files processed." or similar
- 
-        total_loaded += rows
-        print(f"  ✓ {table_name:<35} {rows:>6} rows loaded")
+            try:
+                rows_loaded = sum(row[3] for row in result)
+                print(rows_loaded)
+            except Exception as e:
+                print(e)
+                rows_loaded = 0
+                pass    
+        total_loaded += rows_loaded
+        status = "SUCCESS"
+        print(f"  ✓ {table_name:<35} {total_loaded:>6} rows loaded")
     except Exception as e:
-        print(f"  ✗ {table_name:<35} FAILED: {e}")
+        rows_loaded = 0
+        status = f"FAILED: {e}"
         failed += 1
+        print(f"  ✗ {table_name:<35} {status}")
+
+    results.append({
+        "table":       table_name,
+        "rows_loaded": rows_loaded,
+        "status":      status,
+    })
  
 conn.commit()
 print(f"\n[Loader] Done — {total_loaded} rows loaded, {failed} failures.")

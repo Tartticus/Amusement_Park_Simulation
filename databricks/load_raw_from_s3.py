@@ -249,15 +249,25 @@ results      = []
 for table_name, stmt in STATEMENTS:
     try:
         cur.execute(stmt)
-        result       = cur.fetchone()
-        rows_loaded  = result[0] if result else 0
+        result = cur.fetchall()
+        print(result)
+        if result is None:
+            rows_loaded = 0
+        else:
+            try:
+                rows_loaded = sum(row[3] for row in result)
+                print(rows_loaded)
+            except Exception as e:
+                print(e)
+                rows_loaded = 0
+                pass    
         total_loaded += rows_loaded
-        status       = "SUCCESS"
-        print(f"  ✓ {table_name:<35} {rows_loaded:>6} rows loaded")
+        status = "SUCCESS"
+        print(f"  ✓ {table_name:<35} {total_loaded:>6} rows loaded")
     except Exception as e:
         rows_loaded = 0
-        status      = f"FAILED: {e}"
-        failed     += 1
+        status = f"FAILED: {e}"
+        failed += 1
         print(f"  ✗ {table_name:<35} {status}")
 
     results.append({
@@ -265,7 +275,7 @@ for table_name, stmt in STATEMENTS:
         "rows_loaded": rows_loaded,
         "status":      status,
     })
-
+    
 conn.commit()
 cur.close()
 conn.close()
